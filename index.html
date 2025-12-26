@@ -1,19 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>rymn-site</title>
-  <link rel="icon" href="assets/favicon.ico">
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Personal site for Rymn Wadhwa">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>rymn.ca</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main class="container">
-    <h1>rymn-site</h1>
-    <p>Coming soon.</p>
-  </main>
+  <div class="wrap">
+    <header class="top">
+      <div class="marquee" aria-hidden="true">
+        <span>✶ rymn.ca ✶ VISUAL ART ✶ SCRIPTS ✶ MISC ✶ LAST CALL ✶ vibes only ✶</span>
+      </div>
+
+      <center>
+        <h1 class="site-title">RYMN</h1>
+        <div class="tagline">made by an amateur • updated whenever • no refunds</div>
+        <nav class="nav">
+          <a href="#art">VISUAL ART</a> ♬
+          <a href="#scripts">SCRIPTS</a> ♬
+          <a href="#misc">MISC</a> ♬
+          <a href="#contact">CONTACT</a>
+        </nav>
+      </center>
+
+      <div class="badges">
+        <span class="badge blink">NEW!!!</span>
+        <span class="badge">best viewed with: vibes</span>
+        <span class="badge">visitor # <span id="count">000000</span></span>
+      </div>
+    </header>
+
+    <hr class="rule" />
+
+    <section id="art">
+      <h2>VISUAL ART</h2>
+      <p class="small">
+        photos coming soon. for now, pretend these boxes are mysterious objects from 1999.
+      </p>
+
+      <div class="grid">
+        <!-- Replace these with your own images later -->
+        <a class="card" href="assets/art1.jpg"><span>[art_01.jpg]</span></a>
+        <a class="card" href="assets/art2.jpg"><span>[art_02.jpg]</span></a>
+        <a class="card" href="assets/art3.jpg"><span>[art_03.jpg]</span></a>
+        <a class="card" href="assets/art4.jpg"><span>[art_04.jpg]</span></a>
+        <a class="card" href="assets/art5.jpg"><span>[art_05.jpg]</span></a>
+        <a class="card" href="assets/art6.jpg"><span>[art_06.jpg]</span></a>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section id="scripts">
+      <h2>SCRIPTS</h2>
+      <ul class="list">
+        <li>
+          <span class="title">THE VOYEUR</span>
+          <span class="desc">short film / screenplay • a boom mic follows a voice through toronto</span>
+          <span class="meta">[excerpt available] [full script on request]</span>
+        </li>
+        <li>
+          <span class="title">UNTITLED</span>
+          <span class="desc">scene scraps • “i’m not a narrator, i’m a leak”</span>
+          <span class="meta">[in progress]</span>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="rule" />
+
+    <section id="misc">
+      <h2>MISC</h2>
+
+      <div class="two-col">
+        <div>
+          <h3>LAST CALL (board game)</h3>
+          <p class="small">
+            social drinking game about tipping, bluffing, and consequences.
+            <span class="pill">playtesting</span>
+          </p>
+          <div class="links">
+            <a href="#" onclick="alert('coming soon 😈'); return false;">rules (pdf)</a>
+            <a href="#" onclick="alert('coming soon 😈'); return false;">components</a>
+            <a href="#" onclick="alert('coming soon 😈'); return false;">photos</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>tiny coded game</h3>
+          <p class="small">a little vibe-coded prototype. chaotic. tender. questionable.</p>
+          <div class="links">
+            <a href="#" onclick="alert('drop a link here later'); return false;">play</a>
+            <a href="#" onclick="alert('drop a github link here later'); return false;">code</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <footer id="contact">
+      <center>
+        <div class="under">UNDER CONSTRUCTION</div>
+        <p class="small">email: <a href="mailto:hello@rymn.ca">hello@rymn.ca</a></p>
+        <p class="tiny">© rymn • spiritually 1999</p>
+      </center>
+    </footer>
+  </div>
+
+  <script>
+    // fake visitor counter (delightfully dishonest)
+    const key = "rymn_counter";
+    const n = (Number(localStorage.getItem(key)) || 0) + 1;
+    localStorage.setItem(key, n);
+    document.getElementById("count").textContent = String(n).padStart(6, "0");
+  </script>
 </body>
 </html>
-
 

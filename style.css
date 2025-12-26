@@ -1,58 +1,187 @@
-:root {
-  --bg: #0b0b0d;
-  --fg: #e6e6e6;
-  --muted: #a0a0a0;
-  --accent: #7c5cff;
-  --card: #141419;
-  --border: rgba(255, 255, 255, 0.08);
+:/* intentionally a little ugly */
+
+:root{
+  --bg: #fff8ea;
+  --ink: #111;
+  --link: #0000ee;
+  --vlink: #551a8b;
+  --hl: #ff00aa;
+  --box: #ffffff;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+html, body { height: 100%; }
 
-html, body {
-  height: 100%;
-}
-
-body {
+body{
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 20px 20px, rgba(0,0,0,0.06) 0 2px, transparent 2px 40px),
+    var(--bg);
+  font-family: "Times New Roman", Times, serif;
 }
 
-.container {
-  min-height: 100%;
+a { color: var(--link); }
+a:visited { color: var(--vlink); }
+a:hover { background: yellow; }
+
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.site-title{
+  margin: 10px 0 0;
+  letter-spacing: 6px;
+  font-size: 42px;
+  text-shadow: 1px 1px 0 #000;
+  color: #000;
+}
+
+.tagline{
+  margin: 6px 0 10px;
+  font-size: 14px;
+}
+
+.nav{
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.badges{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 0 0;
+}
+
+.badge{
+  border: 2px solid #000;
+  background: #fff;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.rule{
+  border: 0;
+  border-top: 2px dashed #000;
+  margin: 18px 0;
+}
+
+h2{
+  margin: 0 0 8px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+h3{
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.small{ font-size: 14px; margin: 6px 0 12px; }
+.tiny{ font-size: 12px; opacity: 0.8; }
+
+.grid{
   display: grid;
-  place-items: center;
-  padding: 4rem 1rem;
-  text-align: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-p {
-  margin: 0;
-  color: var(--muted);
-}
-
-a {
-  color: var(--accent);
+.card{
+  display: block;
+  border: 2px solid #000;
+  background: var(--box);
+  padding: 14px;
+  min-height: 90px;
   text-decoration: none;
+  position: relative;
 }
 
-a:hover {
-  text-decoration: underline;
+.card span{
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
 }
 
+.list{
+  list-style: square;
+  padding-left: 18px;
+}
+
+.list li{ margin: 10px 0; }
+
+.title{
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.desc{ display:block; font-size: 14px; margin-top: 2px; }
+.meta{ display:block; font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.links a{
+  display: inline-block;
+  margin-right: 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.pill{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  border: 1px solid #000;
+  background: #ccffcc;
+  font-size: 12px;
+}
+
+.under{
+  display: inline-block;
+  border: 3px double #000;
+  padding: 4px 10px;
+  background: #ffffcc;
+  letter-spacing: 2px;
+  margin: 8px 0 0;
+}
+
+/* faux-marquee */
+.marquee{
+  border: 2px solid #000;
+  background: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  padding: 4px 0;
+  margin-bottom: 10px;
+}
+.marquee span{
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 16s linear infinite;
+}
+@keyframes scroll{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-100%); }
+}
+
+/* blink (because 1999) */
+.blink{
+  animation: blink 0.9s steps(2, start) infinite;
+  background: #ffccff;
+}
+@keyframes blink{
+  to { visibility: hidden; }
+}
+
+@media (max-width: 760px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+  .two-col{ grid-template-columns: 1fr; }
+}
 
